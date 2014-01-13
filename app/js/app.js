@@ -2,14 +2,18 @@
 
 
 // Declare app level module which depends on filters, and services
-angular.module('Grid', [
-  'ngRoute',
-  'Grid.filters',
-  'Grid.services',
-  'Grid.directives',
-  'Grid.controllers'
-]).
-config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/grid', {templateUrl: 'partials/grid.html', controller: 'GridCtrl'});
-  $routeProvider.otherwise({redirectTo: '/grid'});
-}]);
+var gridApp = angular.module('Grid', [
+    'ngRoute',
+    'gridControllers'
+]);
+gridApp.config(['$routeProvider',
+    function($routeProvider) {
+        $routeProvider.when('/grid', {
+            templateUrl: 'partials/grid.html',
+            controller: 'GridCtrl'
+        });
+        $routeProvider.otherwise({
+            redirectTo: '/grid'
+        });
+    }
+]);
